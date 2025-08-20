@@ -1,4 +1,3 @@
-
 import bgTriangle from "/src/assets/bg-triangle.svg";
 
 import iconRock from "/src/assets/icon-rock.svg";
