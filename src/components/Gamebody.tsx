@@ -33,9 +33,9 @@ const Gamebody = () => {
   const [state, dispatch] = useReducer(reducer, { status: "idle" });
   return (
     <>
-      <div className="gameBody mt-24 relative flex justify-center my-10">
-        {state.status == "idle" && (
-          <>
+      {state.status == "idle" && (
+        <>
+          <div className="gameBody mt-24 relative flex justify-center my-10">
             <div className="triangle flex justify-center my-20">
               <img src={bgTriangle} className="w-3/4" />
             </div>
@@ -63,29 +63,44 @@ const Gamebody = () => {
                 />
               </div>
             </div>
-          </>
-        )}
+          </div>
+        </>
+      )}
 
-        {state.status == "playerChoice" && (
-          <> 
-            <DisplayButton choice={state.choice} /> 
-            <button onClick = {() => dispatch({type : "RESOLVE", result : "win"})}>
-          The Player has Chosen: {" "}
-              {state.choice}
-           </button> 
-          </>
-        )
-        }
+      {state.status == "playerChoice" && (
+        <>
+          <div className="pt-4 gap-16 px-8 mt-16">
+            <div className="flex justify-between text-center text-xs">
+              <div>
+                <DisplayButton choice={state.choice} />
+                <p>YOU PICKED</p>
+              </div>
 
-        {state.status == "result" && (
-          <>
-            <button onClick = {() => dispatch({type : "RESET"})}>
-              Here we display result
-           </button> 
-          </>
-        )
-        }
-      </div>
+              <div>
+                <div className="bg-black/10 m-4 w-28 h-28 rounded-full">
+                </div>
+                <p>THE HOUSE PICKED</p>
+              </div>
+            </div>
+          </div>
+          <div className="my-8 text-center">
+            <button
+              className="p-2 border-2 rounded-xl"
+              onClick={() => dispatch({ type: "RESOLVE", result: "win" })}
+            >
+             Debug only:next 
+            </button>
+          </div>
+        </>
+      )}
+
+      {state.status == "result" && (
+        <>
+          <button onClick={() => dispatch({ type: "RESET" })}>
+            Here we display result
+          </button>
+        </>
+      )}
     </>
   );
 };

@@ -20,7 +20,7 @@ const DisplayButton = ({ choice }: DisplayButtonProps) => {
   return (
     <>
       <div
-        className={`${color} rounded-full p-4 shadow-[inset_0_-6px_rgba(0,0,0,0.1),0_0_rgba(0,0,0,0.7)] transition-transform active:shadow-none active:scale-80`}
+        className={`${color} rounded-full w-32 h-32 p-4 mb-4 shadow-[inset_0_-6px_rgba(0,0,0,0.1),0_0_rgba(0,0,0,0.7)]`}
       >
         <div className="bg-white rounded-full w-24 h-24 p-6 shadow-[inset_0_6px_rgba(0,0,0,0.2),0_0_rgba(0,0,0,0.7)]">
           <img src={icon} alt={choice} />
